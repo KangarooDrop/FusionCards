@@ -5,8 +5,8 @@ import sys
 import pandas as pd
 
 excel_path = "cards.xlsx"
-server_out_path = "CardsServer.csv"
-client_out_path = "CardsClient.csv"
+server_out_path = "../FusionServer/Data/CardsServer.csv"
+client_out_path = "../FusionClient/Data/CardsClient.csv"
 
 START_INDEX : int = 2
 
@@ -20,10 +20,6 @@ if __name__ == '__main__':
         sys.exit(1)
     
     df = pd.read_excel(excel_path, keep_default_na=False)
-    #df = pd.read_excel(excel_path)
-    
-    numRows : int = len(df.index)
-    numColumns : int = len(df.iloc[0])
     keys = df.columns.values.flatten().tolist()
     
     ###############################################################################
