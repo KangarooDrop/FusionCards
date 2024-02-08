@@ -7,10 +7,11 @@ import pandas as pd
 excel_path = "cards.xlsx"
 server_out_path = "../FusionServer/Data/CardsServer.csv"
 client_out_path = "../FusionClient/Data/CardsClient.csv"
+shared_out_path = "shared/CardsData.csv"
 
 START_INDEX : int = 2
 
-serverKeys = ["name", "power", "toughness", "abilities"]
+serverKeys = ["name", "power", "toughness", "elements", "abilities"]
 clientKeys = ["name", "art_file"]
 
 if __name__ == '__main__':
@@ -23,11 +24,17 @@ if __name__ == '__main__':
     keys = df.columns.values.flatten().tolist()
     
     ###############################################################################
+    dfShared = df.copy()
+    dfShared.to_csv(shared_out_path, header=True, index=False, lineterminator='\n')
+    print("Saving shared data to " + shared_out_path)
+    
+    """
+    ###############################################################################
     
     dfServer = df.copy()
     unusedServerKeys = [k for k in keys if k not in serverKeys]
     dfServer = dfServer.drop(unusedServerKeys, axis=1)
-    dfServer.to_csv(server_out_path, header=False, index=False)
+    dfServer.to_csv(server_out_path, header=True, index=False, lineterminator='\n')
     print("Saving server data to " + server_out_path)
     
     ###############################################################################
@@ -35,5 +42,6 @@ if __name__ == '__main__':
     dfClient = df.copy()
     unusedClientKeys = [k for k in keys if k not in clientKeys]
     dfClient = dfClient.drop(unusedClientKeys, axis=1)
-    dfClient.to_csv(client_out_path, header=False, index=False)
+    dfClient.to_csv(client_out_path, header=True, index=False, lineterminator='\n')
     print("Saving client data to " + client_out_path)
+    """

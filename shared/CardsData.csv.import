@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c8ulh6f8v61ma"
+
+[deps]
+
+files=["res://shared/CardsData.art.translation", "res://shared/CardsData.power.translation", "res://shared/CardsData.toughness.translation", "res://shared/CardsData.elements.translation", "res://shared/CardsData.abilities.translation"]
+
+source_file="res://shared/CardsData.csv"
+dest_files=["res://shared/CardsData.art.translation", "res://shared/CardsData.power.translation", "res://shared/CardsData.toughness.translation", "res://shared/CardsData.elements.translation", "res://shared/CardsData.abilities.translation"]
+
+[params]
+
+compress=true
+delimiter=0
